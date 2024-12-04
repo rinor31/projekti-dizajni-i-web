@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BookShop</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+
+        :root {
+
+            --pink: #e84393;
+
+        }
+
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+            outline: none;
+
+            border: none;
+
+            text-decoration: none;
+
+            text-transform: capitalize;
+
+            transform: .2s linear;
+
+        }
+
+
+        html {
+
+            font-size: 62.5%;
+
+            scroll-behavior: smooth;
+
+            scroll-padding-top: 6rem;
+
+            overflow: hidden;
+
+        }
+
+
+        header {
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            right: 0;
+
+            background: #fff;
+
+            padding: 2rem 9%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            z-index: 1000;
+
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+
+        }
+
+
+        header .logo {
+
+            font-size: 3rem;
+
+            color: #333;
+
+            font-weight: bolder;
+
+        }
+
+
+        header .logo span {
+
+            color: var(--pink);
+
+        }
+
+
+        header .navbar a {
+
+            font-size: 2rem;
+
+            padding: 0 1.5rem;
+
+            color: #666;
+
+        }
+
+
+        header .navbar a:hover {
+
+            color: var(--pink);
+
+        }
+
+
+        header .icons a {
+
+            font-size: 2.5rem;
+
+            color: #333;
+
+            margin-left: 1.5rem;
+
+        }
+
+
+        header .icons a:hover {
+
+            color: var(--pink);
+
+        }
+
+
+        header #toggler {
+
+            display: none;
+
+        }
+
+
+        header .fa-bars {
+
+            font-size: 3rem;
+
+            color: #333;
+
+            border-radius: 5rem;
+
+            padding: .5rem 1.5rem;
+
+            cursor: pointer;
+
+            border: .1rem solid rgba(0, 0, 0, .3);
+
+            display: none;
+
+        }
+
+
+        /* Search Bar */
+
+        .search-bar {
+
+            position: fixed;
+
+            top: 10rem;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: 50%;
+
+            max-width: 500px;
+
+            padding: 0.8rem 1.5rem;
+
+            background-color: #fff;
+
+            border-radius: 25px;
+
+            box-shadow: 0 .5rem 1rem rgba(0,0,0,0.1);
+
+        }
+
+
+        .search-bar input {
+
+            width: 90%;
+
+            padding: 1rem;
+
+            border-radius: 25px;
+
+            border: 1px solid #ccc;
+
+            font-size: 1.6rem;
+
+        }
+
+
+        .search-bar button {
+
+            position: absolute;
+
+            right: 0.5rem;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            background: var(--pink);
+
+            color: #fff;
+
+            border: none;
+
+            padding: 0.8rem;
+
+            font-size: 1.6rem;
+
+            border-radius: 50%;
+
+            cursor: pointer;
+
+        }
+
+
+        /* Section for books */
+
+        .book-section {
+
+            margin-top: 15rem;
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 2rem;
+
+        }
+
+
+        .book-item {
+
+            width: 200px;
+
+            padding: 1.5rem;
+
+            background: #fff;
+
+            box-shadow: 0 0 1rem rgba(0, 0, 0, .1);
+
+            border-radius: 8px;
+
+            text-align: center;
+
+            transition: transform .3s;
+
+        }
+
+
+        .book-item:hover {
+
+            transform: translateY(-10px);
+
+        }
+
+
+        .book-item img {
+
+            width: 100%;
+
+            height: 250px;
+
+            object-fit: cover;
+
+            border-radius: 5px;
+
+        }
+
+
+        .book-item h3 {
+
+            margin-top: 1rem;
+
+            font-size: 1.8rem;
+
+            color: #333;
+
+        }
+
+
+        .book-item p {
+
+            color: var(--pink);
+
+            font-size: 1.6rem;
+
+            font-weight: bold;
+
+        }
+
+
+        @media(max-width: 768px) {
+
+            html {
+
+                font-size: 55%;
+
+            }
+
+
+            header {
+
+                padding: 2rem;
+
+            }
+
+
+            .search-bar {
+
+                width: 80%;
+
+            }
+
+
+            .book-item {
+
+                width: 45%;
+
+            }
+
+        }
+
+
+        @media(max-width: 450px) {
+
+            html {
+
+                font-size: 50%;
+
+            }
+
+
+            .search-bar {
+
+                width: 90%;
+
+            }
+
+
+            .book-item {
+
+                width: 90%;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        
+
+        <div class="logo">
+
+            Book<span>Shop</span>
+
+        </div>
+
+
+          <nav class="navbar">
+
+            <a href="#">Home</a>
+
+            <a href="#">About</a>
+
+            <a href="#">Books</a>
+
+            <a href="#">Best Sellers</a>
+
+            <a href="#">Contact</a>
+
+        </nav>
+
+
+       
+
+        <div class="icons">
+
+            <a href="#"><i class="fas fa-heart"></i></a> 
+
+            <a href="#"><i class="fas fa-shopping-cart"></i></a> 
+
+            <a href="#"><i class="fas fa-envelope"></i></a> 
+
+        </div>
+
+
+        
+
+        <input type="checkbox" id="toggler">
+
+        <label class="fa fa-bars" for="toggler"></label>
+
+    </header>
+
+
+    
+
+    <div class="search-bar">
+
+        <input type="text" placeholder="Search books...">
+
+        <button><i class="fas fa-search"></i></button>
+
+    </div>
+
+    <section class="book-section">
+
+        
+
+        <div class="book-item">
+
+            <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1688011813i/27362503.jpg" alt="It Ends with Us">
+
+            <h3>It Ends with Us</h3>
+
+            <p>$18.99</p>
+
+        </div>
+
+    
+
+        <div class="book-item">
+
+            <img src="https://images.gr-assets.com/books/1553383690l/2657.jpg" alt="To Kill a Mockingbird">
+
+            <h3>To Kill a Mockingbird</h3>
+
+            <p>$15.50</p>
+
+        </div>
+
+    
+
+        <div class="book-item">
+
+            <img src="https://m.media-amazon.com/images/I/71rpa1-kyvL._AC_UF1000,1000_QL80_.jpg" alt="1984">
+
+            <h3>1984</h3>
+
+            <p>$22.00</p>
+
+        </div>
+
+    
+
+        <div class="book-item">
+
+            <img src="https://m.media-amazon.com/images/I/812wzoJvRLL._AC_UF1000,1000_QL80_.jpg" alt="Book 4">
+
+            <h3>Pride and Prejudice</h3>
+
+            <p>$17.30</p>
+
+        </div>
+
+    </section>
+
+    <section class="book-section">
+
+        
+
+        <div class="book-item">
+
+            <img src="https://diwanegypt.com/wp-content/uploads/2020/08/9780552779739.jpg" alt="The Book Thief">
+
+            <h3>The Book Thief</h3>
+
+            <p>$18.00</p>
+
+        </div>
+
+    
+
+        <div class="book-item">
+
+            <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1560816565i/48855.jpg" alt="The Diary Of Young Girl">
+
+            <h3>The Diary Of Young Girl </h3>
+
+            <p>$15.50</p>
+
+        </div>
+
+    
+
+        <div class="book-item">
+
+            <img src="https://m.media-amazon.com/images/I/81FummIc2eL._AC_UF350,350_QL50_.jpg" alt="It Starts With Us">
+
+            <h3>It Starts With Us</h3>
+
+            <p>$22.00</p>
+
+        </div>
+
+    
+
+        <div class="book-item">
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/The_Great_Gatsby_Cover_1925_Retouched.jpg" alt="The Great Gatsby">
+
+            <h3>The Great Gatsby</h3>
+
+            <p>$17.30</p>
+
+        </div>
+
+    </section>
+
+
+</body>
+
+</html>
