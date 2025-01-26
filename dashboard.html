@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Online Bookstore</title>
+  <style>
+ 
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+
+ 
+    header {
+      background-color: #1f2937;
+      color: #ffffff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 28px;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 16px;
+      margin: 5px 0 0;
+      color: #d1d5db;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    /* Card */
+    .card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .card h2 {
+      font-size: 20px;
+      color: #1f2937;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 15px;
+    }
+
+    .card button {
+      background-color: #3b82f6;
+      color: #ffffff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .card button:hover {
+      background-color: #2563eb;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #1f2937;
+      color: #d1d5db;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Admin Dashboard</h1>
+    <p>Mirësevini në panelin e administrimit të bookstore-it tuaj!</p>
+  </header>
+
+  <main class="container">
+    <div class="grid">
+   
+      <div class="card">
+        <h2>Menaxho Librat</h2>
+        <p>Shto, modifiko ose fshi librat në inventar.</p>
+        <button>Menaxho Librat</button>
+      </div>
+
+      
+      <div class="card">
+        <h2>Shiko Porositë</h2>
+        <p>Shiko dhe menaxho porositë e bëra nga klientët.</p>
+        <button>Shiko Porositë</button>
+      </div>
+
+     
+      <div class="card">
+        <h2>Menaxho Përdoruesit</h2>
+        <p>Menaxho përdoruesit dhe të dhënat e tyre.</p>
+        <button>Menaxho Përdoruesit</button>
+      </div>
+
+   
+      <div class="card">
+        <h2>Statistika</h2>
+        <p>Shiko statistikat e shitjeve dhe porosive.</p>
+        <button>Shiko Statistikat</button>
+      </div>
+
+    
+      <div class="card">
+        <h2>Komente</h2>
+        <p>Shiko dhe menaxho komentet e lëna nga klientët.</p>
+        <button>Shiko Komentet</button>
+      </div>
+
+  
+      <div class="card">
+        <h2>Cilësimet</h2>
+        <p>Modifiko cilësimet e faqes dhe preferencat.</p>
+        <button>Hap Cilësimet</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Online Bookstore. Të gjitha të drejtat e rezervuara.
+  </footer>
+</body>
+</html>
